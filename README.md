@@ -1,5 +1,5 @@
 # ByteVault — CTF Challenge Notes
-## Category: Web | Difficulty: Medium | Points: 400
+## Category: Web | Difficulty: Medium
 
 ---
 
@@ -127,22 +127,6 @@ docker build -t bytevault-ctf .
 docker run -d -p 5000:5000 --name bytevault bytevault-ctf
 ```
 
----
 
-## HINTS (optional tiered hints for players)
-
-1. **Hint 1 (cheap):** The console says "restricted environment" — but does it actually execute Python?
-2. **Hint 2 (medium):** What templating engine does Flask use? What happens when user input gets mixed into a template before rendering?
-3. **Hint 3 (expensive):** Try submitting `{{7*7}}` as your "code". What do you see in the output?
-
----
-
-## DESIGN NOTES
-
-- The vulnerability is the same f-string + `render_template_string()` mistake as before,
-  but hidden inside a believable Python sandbox UI.
-- The "restricted environment" disclaimer is the key misdirection — players familiar with
-  CTFs will immediately think "sandbox escape" and start looking for Python-level bypasses,
-  when the real issue is one layer above: the template renderer.
-- Search is now safe (uses a static template with `{{ query }}` properly escaped).
-  This means players cannot stumble onto the vuln accidentally via search.
+## Author 
+Kaustav Das
