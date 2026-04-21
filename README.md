@@ -102,7 +102,6 @@ Or via subclass chain to `subprocess.Popen`:
 ```bash
 whoami       # www-data
 cat /home/www-data/user.txt
-# ByteVault{SSTI_t0_RCE_1s_cl4ssic_n0?}
 ```
 
 ---
