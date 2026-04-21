@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="post-full-header">
+  <div class="post-full-category">{{ post.category }}</div>
+  <h1 class="post-full-title">{{ post.title }}</h1>
+  <p class="post-full-meta">
+    by <a href="/author/{{ post.author }}" class="author-link">{{ post.author }}</a>
+    &mdash; {{ post.date }}
+  </p>
+</div>
+<div class="post-body">
+  {% for paragraph in post.content.split('\n\n') %}
+  <p>{{ paragraph }}</p>
+  {% endfor %}
+  <div class="post-card-tags" style="margin-top:2rem;">
+    {% for tag in post.tags %}
+    <span class="tag">#{{ tag }}</span>
+    {% endfor %}
+  </div>
+</div>
+<div class="post-footer-nav">
+  <a href="/" class="btn-back">← Back to Home</a>
+</div>
+{% endblock %}

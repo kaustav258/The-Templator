@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero" style="padding-bottom:1.5rem;">
+  <div class="hero-label">// author</div>
+  <h1 style="font-size:2.2rem;">{{ username }}</h1>
+  <p class="hero-sub">{{ posts|length }} post{% if posts|length != 1 %}s{% endif %} published</p>
+</div>
+{% if posts %}
+<div class="section-title">Posts by {{ username }}</div>
+<div class="posts-grid">
+  {% for post in posts %}
+  <a href="/post/{{ post.id }}" class="post-card">
+    <div class="post-card-category">{{ post.category }}</div>
+    <h3 class="post-card-title">{{ post.title }}</h3>
+    <p class="post-card-meta">{{ post.date }}</p>
+    <p class="post-card-excerpt">{{ post.content[:120] }}...</p>
+  </a>
+  {% endfor %}
+</div>
+{% else %}
+<div class="no-results">
+  <p>No posts found for this author.</p>
+  <a href="/" class="btn-back">← Back to Home</a>
+</div>
+{% endif %}
+{% endblock %}

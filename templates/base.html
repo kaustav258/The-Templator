@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteVault — Developer Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-brand">Byte<span>Vault</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/console">Console</a>
+    <a href="/about">About</a>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" name="q" placeholder="search posts..." autocomplete="off"/>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<main class="page-wrapper">
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  <p>ByteVault &copy; 2026 &mdash; Built with <span>&lt;3</span> and Python &mdash; Beta v0.4.2</p>
+</footer>
+</body>
+</html>

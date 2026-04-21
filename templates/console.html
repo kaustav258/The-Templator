@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="console-page-header">
+  <h2 class="console-page-title">Python Sandbox</h2>
+  <p class="console-page-sub">// Write and run Python snippets directly in the browser. Restricted environment.</p>
+</div>
+<div class="console-wrapper">
+  <div class="console-header">
+    <span class="console-label">// ByteVault Python Sandbox</span>
+    <span class="console-badge">BETA</span>
+  </div>
+  <div class="console-editor-section">
+    <form method="POST" action="/console">
+      <div class="editor-toolbar">
+        <span class="editor-lang">Python 3.11</span>
+        <button type="submit" class="btn-run">&#9654; Run</button>
+      </div>
+      <textarea name="code" class="code-editor" spellcheck="false" placeholder="# Write your Python code here&#10;print('Hello, ByteVault!')">{{ code }}</textarea>
+    </form>
+  </div>
+  <div class="console-output-section">
+    <div class="output-toolbar">
+      <span class="output-label">Output</span>
+    </div>
+    <div class="output-body">
+      <pre class="output-pre">{% if output %}{{ output }}{% endif %}</pre>
+    </div>
+  </div>
+  <div class="console-notice">
+    <span>&#9888;</span> This sandbox runs in a restricted environment. Imports, file I/O, and network calls are disabled for safety.
+  </div>
+</div>
+{% endblock %}

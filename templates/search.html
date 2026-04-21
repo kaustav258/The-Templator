@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="search-results-wrapper">
+  <div class="search-header">
+    <h2 class="search-title">Search Results</h2>
+    <p class="search-meta">Showing results for: <span class="search-term">"{{ query }}"</span></p>
+  </div>
+  {% if posts %}
+  <div class="posts-grid">
+    {% for post in posts %}
+    <a href="/post/{{ post.id }}" class="post-card">
+      <div class="post-card-category">{{ post.category }}</div>
+      <h3 class="post-card-title">{{ post.title }}</h3>
+      <p class="post-card-meta">by {{ post.author }} &mdash; {{ post.date }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="no-results">
+    <p>No posts matched your query.</p>
+    <a href="/" class="btn-back">← Back to Home</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
