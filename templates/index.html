@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <div class="hero-label">// developer community blog</div>
+  <h1>Byte<em>Vault</em></h1>
+  <p class="hero-sub">Tutorials, stories, and deep-dives from the dev community. Beta v0.4.2</p>
+</div>
+<div class="section-title">Latest Posts</div>
+<div class="posts-grid">
+  {% for post in posts %}
+  <a href="/post/{{ post.id }}" class="post-card">
+    <div class="post-card-category">{{ post.category }}</div>
+    <h3 class="post-card-title">{{ post.title }}</h3>
+    <p class="post-card-meta">by <span class="author-link">{{ post.author }}</span> &mdash; {{ post.date }}</p>
+    <p class="post-card-excerpt">{{ post.content[:120] }}...</p>
+    <div class="post-card-tags">
+      {% for tag in post.tags %}
+      <span class="tag">#{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
